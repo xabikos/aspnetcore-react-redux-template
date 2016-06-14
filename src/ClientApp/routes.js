@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import {Router, Route, HistoryBase} from 'react-router';
 import Layout from './components/layout';
 import Home from './components/home';

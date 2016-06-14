@@ -1,26 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var merge = require('extendify')({ isDeep: true, arrays: 'concat' });
-var devConfig = require('./webpack.config.dev');
-var prodConfig = require('./webpack.config.prod');
-var isDevelopment = process.env.ASPNETCORE_ENVIRONMENT === 'Development';
-var extractCSS = new ExtractTextPlugin('site.css');
 
-module.exports = merge({
-  resolve: {
-    extensions: [ '', '.js', '.jsx' ]
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        include: /ClientApp/,
-        loader: 'babel-loader'
-    },
-      { test: /\.css/, loader: extractCSS.extract(['css']) }
-    ]
-  },
+module.exports = {
   entry: {
     main: ['./ClientApp/boot-client.js'],
   },
@@ -29,11 +10,18 @@ module.exports = merge({
     filename: '[name].js',
     publicPath: '/dist/'
   },
+  module: {
+    loaders: [
+      { test: /\.jsx?$/, include: /ClientApp/, loader: 'babel-loader' },
+      { test: /\.css/, loader: "style!css" },
+      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
+    ]
+  },
+  resolve: {
+    extensions: [ '', '.js', '.jsx' ]
+  },
   plugins: [
-    extractCSS,
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require('./wwwroot/dist/vendor-manifest.json')
-      })
-  ]
-}, isDevelopment ? devConfig : prodConfig);
+    new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' })
+  ],
+  devtool: 'inline-source-map'
+};
