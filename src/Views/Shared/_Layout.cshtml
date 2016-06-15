@@ -11,6 +11,9 @@
 <body>
   @RenderBody()
 
+  <environment names="Staging,Production">
+    <script src="~/dist/vendor.min.js" asp-append-version="true"></script>
+  </environment>
   @RenderSection("scripts", required: false)
 </body>
 </html>
