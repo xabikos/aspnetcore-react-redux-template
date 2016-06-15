@@ -1,7 +1,7 @@
 
 ## What is this?
 
-It's a template project for a SPA application on [asp.net core](www.dot.net) using [React.js](https://facebook.github.io/react/) and [Redux](http://redux.js.org/) written in ES2015 syntax. It's the same template as the one in [original repository](https://github.com/aspnet/JavaScriptServices) that is called [ReacReduxSpa](https://github.com/aspnet/JavaScriptServices/tree/master/templates/ReactReduxSpa) but it's developed in JavaScript rather than TypeScript.
+It's a template project for a SPA application on [asp.net core](https://www.microsoft.com/net) using [React.js](https://facebook.github.io/react/) and [Redux](http://redux.js.org/) written in ES2015 syntax. It's the same template as the one in [original repository](https://github.com/aspnet/JavaScriptServices) that is called [ReacReduxSpa](https://github.com/aspnet/JavaScriptServices/tree/master/templates/ReactReduxSpa) but it's developed in JavaScript rather than TypeScript.
 
 ## What is JavaScript services?
 
