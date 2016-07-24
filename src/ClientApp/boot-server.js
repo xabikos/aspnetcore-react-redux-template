@@ -12,6 +12,11 @@ export default (params) => {
       if (error) {
         throw error;
       }
+      // If it didn't match any route, renderProps will be undefined
+      if (!renderProps) {
+        throw new Error(`The location '${ params.url }' doesn't match any route configured in react-router.`);
+      }
+
       // At this point if we want to initialize the store we need to pass an object with shape
       // {counter: {count: 10}}
       const store = configureStore();
