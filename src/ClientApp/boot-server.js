@@ -12,6 +12,12 @@ export default (params) => {
       if (error) {
         throw error;
       }
+
+      // If there's a redirection, just send this information back to the host application
+      if (redirectLocation) {
+        resolve({ redirectUrl: redirectLocation.pathname });
+      }
+
       // If it didn't match any route, renderProps will be undefined
       if (!renderProps) {
         throw new Error(`The location '${ params.url }' doesn't match any route configured in react-router.`);

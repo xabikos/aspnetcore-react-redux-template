@@ -1,19 +1,19 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>@ViewData["Title"] - WebApplicationBasic</title>
-  <environment names="Staging,Production">
-    <link rel="stylesheet" href="~/dist/site.min.css" asp-append-version="true" />
-  </environment>
-</head>
-<body>
-  @RenderBody()
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplicationBasic</title>
+    <environment names="Staging,Production">
+      <link rel="stylesheet" href="~/dist/site.min.css" asp-append-version="true" />
+    </environment>
+  </head>
+  <body>
+    @RenderBody()
 
-  <environment names="Staging,Production">
-    <script src="~/dist/vendor.min.js" asp-append-version="true"></script>
-  </environment>
-  @RenderSection("scripts", required: false)
-</body>
+    <environment names="Staging,Production">
+      <script src="~/dist/vendor.min.js" asp-append-version="true"></script>
+    </environment>
+    @RenderSection("scripts", required: false)
+  </body>
 </html>

@@ -37,19 +37,25 @@
   },
   "publishOptions": {
     "exclude": [
-      "node_modules",
       "**.xproj",
       "**.user",
       "**.vspscc"
+    ],
+    "include": [
+      "appsettings.json",
+      "ClientApp/dist",
+      "node_modules",
+      "Views",
+      "wwwroot"
     ]
   },
 
   "scripts": {
+    "precompile": "node node_modules/webpack/bin/webpack.js",
     "prepublish": [
       "npm install",
-      "node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js",
-      "node node_modules/webpack/bin/webpack.js"
-    ],
-    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
+      "node node_modules/webpack/bin/webpack.js --config webpack.config.prod.js"
+    ]
+    //"postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   }
 }

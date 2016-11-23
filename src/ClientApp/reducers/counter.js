@@ -11,7 +11,7 @@ const initialState = {
 // The reducer that changes the state based on the action type
 export default (state = initialState, action) => {
   if (action.type === INCREMENT_COUNT) {
-    return { count: state.count +1 };
+    return { count: state.count + 1 };
   }
 
   return state;
